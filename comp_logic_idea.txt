@@ -1,0 +1,33 @@
+AND(A,B)1:
+Input+ = COMP2 A, BIAS +2.5V
+Input- = COMP1 B, BIAS -2.5V
+
+OR(A,B)1:
+Input+ = COMP2 A, BIAS +2.5V
+Input- = COMP1 B, BIAS +2.5V
+
+NAND(A,B)1:
+Input+ = COMP1 A, BIAS +2.5V
+Input- = COMP2 B, BIAS +2.5V
+
+NOR(A,B)1:
+Input+ = COMP1 A, BIAS +2.5V
+Input- = COMP2 B, BIAS -2.5V
+
+XOR(A,B)1:
+Input+ = COMP1 A, BIAS -2.5V} COMP1 OUT, BIAS +2.5V
+Input- = COMP1 B,  	      COMP2 X,
+
+Input+ = COMP3 X, BIAS +2.5V} COMP3 OUT, BIAS +2.5V
+Input- = COMP3 B,  	      NAND1 OUT,
+
+XNOR(A,B)1:
+Input+ = COMP1 A, BIAS -2.5V} COMP1 OUT, BIAS +2.5V
+Input- = COMP1 B,  	      COMP2 X,
+
+Input+ = COMP3 X, BIAS +2.5V} NAND1 OUT, BIAS -2.5V
+Input- = COMP3 B,  	      COMP3 OUT,
+
+NOT(A,B)1:
+Input+ = COMP1 A, BIAS -2.5V
+Input- = COMP2 X, BIAS -2.5V

@@ -1,0 +1,19 @@
+The following seems to work. Note: 'Bias = +' means the knob is tuned to 2.5V, 'Bias = -' means -2.5V. I tend to stay away from 5V as this is a threshold condition.
+
+1. AND(A,B): COMP1: Bias = +, Input- = B. COMP2: Bias = -, Input+ = A, Input- = COMP1 out.
+2. OR(A,B): COMP1: Bias = +, Input- = B. COMP2: Bias = +, Input+ = A, Input- = COMP1 out.
+3. NAND(A,B): COMP1: Bias = +, Input- = A. COMP2: Bias = +, Input+ = COMP1 out, Input- = B.
+4. NOR(A,B): COMP1: Bias = +, Input- = A. COMP2: Bias = -, Input = COMP1 out, Input- = B.
+5. XOR(A,B): COMP1: Bias = -, Input+ = A, Input- = B. COMP2: Bias = +, Input+ = A, Input- = B. COMP3: Bias = +, Input+ = COMP1 out, Input- = COMP2 out.
+6. XNOR(A,B): COMP1: Bias = -, Input+ = A, Input- = B. COMP2: Bias = +, Input+ = A, Input- = B. COMP3: Bias = -, Input+ = COMP2 out, Input- = COMP1 out.
+7. NOT(A): COMP1: Bias = +, Input- = A.
+
+Note: to switch from XOR to XNOR, just change the bias on the third comparator and swap the inputs.
+Note2: AND,OR,NAND,NOR require just two comparators.
+
+Derivation. A single comparator can produce three useful logic operations.
+OP1: AND(A, NOT(B)): Bias = -, Input+ = A, Input- = B.
+OP2: OR(A,NOT(B)): Bias = +, Input+ = A, Input- = B.
+OP3: NOT(A): Bias = +, Input- = A.
+
+The rest follows from logic algebra, Demorgan's law and so forth.
